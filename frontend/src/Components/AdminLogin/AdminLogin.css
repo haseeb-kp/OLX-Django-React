@@ -1,0 +1,33 @@
+.card{
+    margin-top: 30%;
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+    margin: auto auto;
+    float: none;
+    margin-bottom: 10px;
+    background-color: aliceblue;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.10);
+}
+
+
+input[type=text] {
+    border: 3px solid rgb(255, 255, 255);
+    margin: .5rem;
+    width:75%;
+    height: 40px;
+}
+input[type=password] {
+    border: 3px solid rgb(255, 255, 255);
+    margin: .5rem;
+    width:75%;
+    height: 40px;
+}
+button {
+    border: 3px solid rgb(255, 255, 255);
+    margin: .5rem;
+    width:75%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: white;
+}

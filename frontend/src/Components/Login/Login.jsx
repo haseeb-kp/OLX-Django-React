@@ -16,17 +16,18 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const body = JSON.stringify({
+    const data = JSON.stringify({
       email,
       password,
     });
     axios
-      .post(loginPost, body, {
+      .post(loginPost, data , {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        localStorage.setItem("token", res.data.token);
         console.log(res)
+        console.log(res.data.data.id)
+        localStorage.setItem("user", String(res.data.data.id));
         Swal.fire({
           position: "center",
           icon: "success",
@@ -34,19 +35,23 @@ function Login() {
           showConfirmButton: false,
           timer: 1500,
         });
-        dispatch(change(res.data.user));
-        navigate("/");
+        if (res.status==200){
+
+          dispatch(change(res.data.data.username));
+          navigate("/");
+        }
       })
-      .catch((err) => {
-        console.log(err);
-        Swal.fire({
-          position: "center",
-          icon: "warning",
-          title: err.response.data.message,
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      });
+      // .catch((error) => {
+      //   console.log(error);
+      //   Swal.fire({
+      //     position: "center",
+      //     icon: "warning",
+      //     // title: "error",
+      //     title: error.response,
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
+      // });
   };
 
   return (
@@ -80,10 +85,10 @@ function Login() {
                   <form onSubmit={handleLogin}>
                     <div className="form-outline mb-4">
                       <label className="form-label" htmlFor="form3Example3">
-                        Email address
+                        User Name
                       </label>
                       <input
-                        type="email"
+                        type="text"
                         id="form3Example3"
                         className="form-control"
                         value={email}

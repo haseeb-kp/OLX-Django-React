@@ -24,8 +24,8 @@ function SignUp() {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
-        console.log(response.data.status)
-        if (response.data.status === "ok") {
+        console.log(response.status)
+        if (response.status === 200) {
           navigate("/login");
         } else {
           Swal.fire({

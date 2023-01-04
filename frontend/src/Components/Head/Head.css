@@ -1,0 +1,20 @@
+.navbar{
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    padding-top: 40px;
+    
+}
+.links{
+    text-decoration: none;
+    font-style: bold;
+
+}
+.logoutAdmin button{
+    width:30px
+}
