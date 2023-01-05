@@ -87,6 +87,20 @@ def addImage(request,id):
     user.save()
     serializer = UserSerializer(user, many = False)
     return Response(serializer.data)
+class admin_login(APIView):
+    
+    def post(self,request):
+        data = request.data
+        username = data['email']
+        password = data['password']
+
+        user = authenticate(username=username,password=password)
+        print(username,password,user)
+        serial = UserSerializer(user, many=False)
+        if user is not None and user.is_superuser:
+            return Response({"data":serial.data})
+        else:
+            return Response('Invalid credentials')
 
 
 
