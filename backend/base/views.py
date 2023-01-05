@@ -87,6 +87,8 @@ def addImage(request,id):
     user.save()
     serializer = UserSerializer(user, many = False)
     return Response(serializer.data)
+
+
 class admin_login(APIView):
     
     def post(self,request):
@@ -102,7 +104,19 @@ class admin_login(APIView):
         else:
             return Response('Invalid credentials')
 
+@api_view(['GET'])
+def getUsers(request):
+    user = User.objects.all().filter(is_superuser = False)
+    print(user)
+    print('profile = ',user)
+    serializer = UserSerializer(user, many = True)
+    return Response(serializer.data)
 
+@api_view(['DELETE'])
+def userDelete(request,id):
+    user = User.objects.get(id=id)
+    user.delete()
+    return Response('User was deleted')
 
 
 

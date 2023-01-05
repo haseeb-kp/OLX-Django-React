@@ -13,12 +13,12 @@ function Sidebar() {
               <span>Dashboard</span>
             </Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link className="nav-link collapsed" to={"/users"}>
               <i className="bi bi-file-earmark" />
               <span>Users</span>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </aside>
       {/* End Sidebar*/}

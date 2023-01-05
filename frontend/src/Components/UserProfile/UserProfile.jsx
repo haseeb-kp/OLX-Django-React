@@ -30,7 +30,7 @@ function UserProfile() {
           setemail(res.data.email);
           setImage(res.data?.image);
           dispatch(change(res.data.username));
-          dispatch(changeImage('localhost:8000'+res.data?.image));
+          dispatch(changeImage(`localhost:8000${res.data?.image}`));
         })
         .catch((err) => {
           // localStorage.removeItem("user");
@@ -79,8 +79,8 @@ function UserProfile() {
       axios
         .post(`${imageupload}/${Token}`, formData)
         .then((res) => {
-          console.log('localhost:8000'+res.data.image)
-          setImage('localhost:8000'+res.data.image);
+          console.log(`localhost:8000${res.data?.image}`)
+          setImage(`localhost:8000${res.data?.image}`);
         })
         .catch((err) => {
           console.log(err);

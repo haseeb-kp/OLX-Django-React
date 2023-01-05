@@ -27,9 +27,9 @@ function Login() {
         headers: { "Content-Type": "application/json" },
       })
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("adminToken", res.data.adminToken);
-        let token = res.data.adminToken;
+        // console.log(String(res.data.data.email));
+        localStorage.setItem("adminToken", String(res.data.data.email));
+        let token = String(res.data.data.email);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -37,7 +37,8 @@ function Login() {
           showConfirmButton: false,
           timer: 1500,
         });
-        let { email } = jwt_decode(token);
+        console.log("tken",token)
+        let  email = token;
         console.log(email);
         dispatch(changeAdmin(email));
         navigate("/dash");
@@ -85,7 +86,7 @@ function Login() {
                     }}
                   />
                   <label className="form-label" htmlFor="form3Example3">
-                    Email address
+                    User Name
                   </label>
                 </div>
                 {/* Password input */}

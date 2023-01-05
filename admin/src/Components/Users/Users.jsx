@@ -18,7 +18,9 @@ function Users() {
     axios
       .get(getUsers)
       .then((response) => {
-        setUsers(response.data.user);
+        console.log(response.data)
+        // console.log(response.data.data.id);
+        setUsers(response.data);
       })
       .catch((error) => {
         console.log("inside catch");
@@ -38,6 +40,7 @@ function Users() {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
+
           .delete(`${deleteUser}/${id}`)
           .then((res) => {
             getUsersList();

@@ -54,7 +54,7 @@ function SignUp() {
       <section className="text-center overflow-hidden" >
         
         <div className="container px-2 py-5 px-md-5  text-lg-start my-5">
-          <div className="row gx-lg-5 align-items-center mb-5">
+          <div className="row gx-lg-5 justify-content-center align-items-center mb-5">
             
             <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
               
